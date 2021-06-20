@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellXib" rowHeight="428" id="Iw2-0g-v7Q" customClass="NewsCellXib" customModule="VK_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="428"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iw2-0g-v7Q" id="KEk-H9-VSU">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="428"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="drn-vt-eMh">
+                        <rect key="frame" x="0.0" y="115" width="414" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="MfD-md-bFc"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bgr-f3-m5F" customClass="AvatarImage" customModule="VK_app" customModuleProvider="target">
+                        <rect key="frame" x="30" y="35" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="CPp-xi-Tct"/>
+                            <constraint firstAttribute="width" secondItem="Bgr-f3-m5F" secondAttribute="height" multiplier="1:1" id="tqh-Ox-Duw"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5kx-PJ-chY">
+                        <rect key="frame" x="105" y="46" width="254" height="38"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuP-pi-QqH">
+                                <rect key="frame" x="0.0" y="0.0" width="254" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFP-4X-p69">
+                                <rect key="frame" x="0.0" y="26" width="254" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jO-t4-Zbi" customClass="ComentControl" customModule="VK_app" customModuleProvider="target">
+                        <rect key="frame" x="80" y="373" width="30" height="30"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="nNB-eb-Q9r"/>
+                            <constraint firstAttribute="width" constant="30" id="rEO-sD-wbf"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdd-Pc-HLY">
+                        <rect key="frame" x="374" y="58" width="25" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="8qg-BR-bhD"/>
+                            <constraint firstAttribute="height" constant="14" id="nQ3-Rh-uGf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="ellipsis" catalog="system"/>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqg-JL-ovW" customClass="LikeControl" customModule="VK_app" customModuleProvider="target">
+                        <rect key="frame" x="30" y="373" width="30" height="30"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="fp3-o6-P0q"/>
+                            <constraint firstAttribute="height" constant="30" id="saT-xd-b67"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rdd-Pc-HLY" firstAttribute="leading" secondItem="5kx-PJ-chY" secondAttribute="trailing" constant="15" id="218-X3-EgD"/>
+                    <constraint firstItem="Bgr-f3-m5F" firstAttribute="top" secondItem="KEk-H9-VSU" secondAttribute="top" constant="35" id="385-Eg-q8e"/>
+                    <constraint firstItem="5kx-PJ-chY" firstAttribute="leading" secondItem="Bgr-f3-m5F" secondAttribute="trailing" constant="15" id="3Ny-C6-3kp"/>
+                    <constraint firstItem="drn-vt-eMh" firstAttribute="top" secondItem="Bgr-f3-m5F" secondAttribute="bottom" constant="20" id="FOg-qN-XAf"/>
+                    <constraint firstItem="5kx-PJ-chY" firstAttribute="centerY" secondItem="Bgr-f3-m5F" secondAttribute="centerY" id="IYs-19-H6b"/>
+                    <constraint firstItem="2jO-t4-Zbi" firstAttribute="leading" secondItem="Cqg-JL-ovW" secondAttribute="trailing" constant="20" id="QfE-Bt-cmI"/>
+                    <constraint firstAttribute="trailing" secondItem="drn-vt-eMh" secondAttribute="trailing" id="Zvs-aR-r4V"/>
+                    <constraint firstItem="rdd-Pc-HLY" firstAttribute="centerY" secondItem="5kx-PJ-chY" secondAttribute="centerY" id="aK5-ZT-dVf"/>
+                    <constraint firstItem="Cqg-JL-ovW" firstAttribute="top" secondItem="drn-vt-eMh" secondAttribute="bottom" constant="8" symbolic="YES" id="aVp-1x-1wz"/>
+                    <constraint firstItem="drn-vt-eMh" firstAttribute="leading" secondItem="KEk-H9-VSU" secondAttribute="leading" id="dJ6-dl-ahA"/>
+                    <constraint firstAttribute="trailing" secondItem="rdd-Pc-HLY" secondAttribute="trailing" constant="15" id="ePz-CB-BsC"/>
+                    <constraint firstAttribute="bottom" secondItem="Cqg-JL-ovW" secondAttribute="bottom" constant="42" id="iCK-Af-dlk"/>
+                    <constraint firstItem="Bgr-f3-m5F" firstAttribute="leading" secondItem="KEk-H9-VSU" secondAttribute="leading" constant="30" id="iKH-3L-vQB"/>
+                    <constraint firstItem="2jO-t4-Zbi" firstAttribute="centerY" secondItem="Cqg-JL-ovW" secondAttribute="centerY" id="jnR-2p-rMi"/>
+                    <constraint firstItem="Cqg-JL-ovW" firstAttribute="leading" secondItem="KEk-H9-VSU" secondAttribute="leading" constant="30" id="xgl-4n-Cxz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImage" destination="Bgr-f3-m5F" id="2Z4-bW-tNA"/>
+                <outlet property="comentControl" destination="2jO-t4-Zbi" id="0GV-Q2-eVC"/>
+                <outlet property="dateLabel" destination="qFP-4X-p69" id="A8V-nh-86F"/>
+                <outlet property="likeControl" destination="Cqg-JL-ovW" id="Uck-d9-UIS"/>
+                <outlet property="photoImage" destination="drn-vt-eMh" id="SVU-Ew-EwU"/>
+                <outlet property="titleLabel" destination="xuP-pi-QqH" id="fOM-lM-rVR"/>
+            </connections>
+            <point key="canvasLocation" x="-36.231884057971016" y="-85.044642857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

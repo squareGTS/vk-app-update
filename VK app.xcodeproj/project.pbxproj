@@ -44,6 +44,7 @@
 		12EBD414262365FB00CDBAD8 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EBD413262365FB00CDBAD8 /* GroupCell.swift */; };
 		12F0578C2654EDBE0033B761 /* ComentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F0578B2654EDBE0033B761 /* ComentControl.swift */; };
 		12F0578E265503E40033B761 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F0578D265503E40033B761 /* LoadingViewController.swift */; };
+		51E9C1A2267FCB4600438A8F /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9C1A1267FCB4600438A8F /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		12EBD413262365FB00CDBAD8 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		12F0578B2654EDBE0033B761 /* ComentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentControl.swift; sourceTree = "<group>"; };
 		12F0578D265503E40033B761 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		51E9C1A1267FCB4600438A8F /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				12F0578F265508970033B761 /* Resources */,
 				1269065D26519C2700572BAD /* Configuration */,
 				123FFF532619939800FC018A /* VK_app.xcdatamodeld */,
+				51E9C1A1267FCB4600438A8F /* Session.swift */,
 			);
 			path = "VK app";
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				123FFF4F2619939800FC018A /* LoginViewController.swift in Sources */,
 				123FFF4B2619939800FC018A /* AppDelegate.swift in Sources */,
 				120F237226661A39000E07A5 /* PushAnimator.swift in Sources */,
+				51E9C1A2267FCB4600438A8F /* Session.swift in Sources */,
 				126906802653FF7900572BAD /* News.swift in Sources */,
 				123FFF4D2619939800FC018A /* SceneDelegate.swift in Sources */,
 				12EBD40A262363BA00CDBAD8 /* FriendPhotoCell.swift in Sources */,

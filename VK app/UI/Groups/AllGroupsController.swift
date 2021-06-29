@@ -33,7 +33,7 @@ class AllGroupsController: UITableViewController {
         
         let curentGroup = group[indexPath.row]
         if let avatar = curentGroup.avatar {
-        cell.configure(image: avatar, name: curentGroup.name)
+            cell.configure(image: avatar, name: curentGroup.name)
         }
         return cell
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - Groups
 struct Groups: Codable {
@@ -19,11 +20,11 @@ struct ResponseGroup: Codable {
 }
 
 // MARK: - Item
-struct Groupp: Codable {
-    let id: Int
-    let extended, trackCode, name: String?
-    let photo100: String?
-    let deactivated: DeactivatedGroup?
+class Groupp: Object, Codable {
+    @objc dynamic var id: Int
+    @objc dynamic var extended, trackCode, name: String?
+    @objc dynamic var photo100: String?
+   // let deactivated: DeactivatedGroup?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -31,11 +32,11 @@ struct Groupp: Codable {
         case trackCode = "track_code"
         case name = "name"
         case photo100 = "photo_100"
-        case deactivated
+       // case deactivated
     }
 }
 
-enum DeactivatedGroup: String, Codable {
-    case banned = "banned"
-    case deleted = "deleted"
-}
+//enum DeactivatedGroup: String, Codable {
+//    case banned = "banned"
+//    case deleted = "deleted"
+//}

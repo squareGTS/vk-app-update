@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - Photos
 struct Photos: Codable {
@@ -19,21 +20,21 @@ struct ResponsePhoto: Codable {
 }
 
 // MARK: - Item
-struct Photoo: Codable {
-    let id: Int
-    let albumId, photoIds, photoSizes: String?
-    let deactivated: DeactivatedPhoto?
+class Photoo: Object, Codable {
+    @objc dynamic var id: Int
+    @objc dynamic var  albumId, photoIds, photoSizes: String?
+   // let deactivated: DeactivatedPhoto?
 
     enum CodingKeys: String, CodingKey {
         case id
         case albumId = "album_id"
         case photoIds = "photo_ids"
         case photoSizes = "1"
-        case deactivated
+       // case deactivated
     }
 }
 
-enum DeactivatedPhoto: String, Codable {
-    case banned = "banned"
-    case deleted = "deleted"
-}
+//enum DeactivatedPhoto: String, Codable {
+//    case banned = "banned"
+//    case deleted = "deleted"
+//}

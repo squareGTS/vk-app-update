@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - Friends
 struct Friends: Codable {
@@ -19,24 +20,24 @@ struct Response: Codable {
 }
 
 // MARK: - Item
-struct User: Codable {
-    let id: Int
-    let lastName, trackCode, firstName: String?
-    let photo100: String?
-    let deactivated: DeactivatedFriends?
-
+class User: Object, Codable {
+    @objc dynamic var id: Int
+    @objc dynamic var lastName, trackCode, firstName: String?
+    @objc dynamic var photo100: String?
+    //@objc dynamic var deactivated: DeactivatedFriends?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case lastName = "last_name"
         case trackCode = "track_code"
         case firstName = "first_name"
         case photo100 = "photo_100"
-        case deactivated
+        //case deactivated
     }
 }
 
-enum DeactivatedFriends: String, Codable {
-    case banned = "banned"
-    case deleted = "deleted"
-}
+//enum DeactivatedFriends: String, Codable {
+//    case banned = "banned"
+//    case deleted = "deleted"
+//}
 

@@ -66,8 +66,12 @@ final class APIService {
 
         AF.request(url, method: .get, parameters: parameters).responseData { response in
             
+            print(response.request)
+            
             guard let data = response.data else { return }
            // print(data.prettyJSON)
+            
+            print(data.prettyJSON)
             
             let groupsResponse = try? JSONDecoder().decode(Groups.self, from: data)
             

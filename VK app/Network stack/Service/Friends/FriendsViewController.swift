@@ -15,11 +15,24 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var friends = [User]()
     let apiService = APIService()
     
+    var friend: [UserModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiService.getFriendsQuicktype { users in
-            self.friends = users
+//        apiService.getFriendsQuicktype { users in
+//            self.friends = users
+//            self.tableView.reloadData()
+//        }
+        
+         
+        apiService.getFriendsQuicktype{ [weak self]  users in
+        print(users)
+        
+            
+            //will finish work and after that close controller
+            guard let self = self else { return }
+            self.friend = users
             self.tableView.reloadData()
         }
         

@@ -17,10 +17,10 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        apiService.getGroupsQuicktype { users in
-            self.groups = users
-            self.tableView.reloadData()
-        }
+//        apiService.getGroupsQuicktype { users in
+//            self.groups = users
+//            self.tableView.reloadData()
+//        }
 
         tableView.delegate = self
         tableView.dataSource = self

@@ -17,10 +17,10 @@ class PhotoViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        apiService.getPhotosQuicktype { photo in
-            self.photos = photo
-            self.collectionView.reloadData()
-        }
+//        apiService.getPhotosQuicktype { photo in
+//            self.photos = photo
+//            self.collectionView.reloadData()
+//        }
         
         collectionView.delegate = self
         collectionView.dataSource = self

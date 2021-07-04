@@ -7,6 +7,8 @@
 
 import Foundation
 import Alamofire
+import DynamicJSON
+import RealmSwift
 
 //struct User {}
 
@@ -17,104 +19,136 @@ final class APIService {
     let cliendId = Session.shared.userId
     let version = "5.21"
     
+    func getFriendsQuicktype(completion: @escaping([UserModel])->()) {
+   
+           let method = "/friends.get"
+   
+           let parameters: Parameters = [
+               "user_id": cliendId,
+               "order": "name",
+               "count": 100,
+               "fields": "photo_100, photo_50",
+               "access_token": Session.shared.token,
+               "v": version]
+   
+           let url = baseUrl + method
+   
+   
+           AF.request(url, method: .get, parameters: parameters).responseData { response in
+   
+               print(response.request as Any)
+               
+               guard let data = response.data else { return }
+               print(data.prettyJSON as Any)
+               
+               guard let items = JSON(data).response.items.array else { return }
+               
+               let friend: [UserModel] = items.map{ UserModel(data: $0) }
+               
+               DispatchQueue.main.async {
+                   completion([friend])
+               }
+           }
+       }
     
-    func getFriendsQuicktype(completion: @escaping([User])->()) {
-
-        let method = "/friends.get"
-
-        let parameters: Parameters = [
-            "user_id": cliendId,
-            "order": "name",
-            "count": 100,
-            "fields": "photo_100",
-            "access_token": Session.shared.token,
-            "v": version]
-
-        let url = baseUrl + method
-
-
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
-
-            guard let data = response.data else { return }
-           // print(data.prettyJSON)
-
-            let friendsResponse = try? JSONDecoder().decode(Friends.self, from: data)
-
-            guard let friends = friendsResponse?.response.items else { return }
-
-            DispatchQueue.main.async {
-                completion(friends)
-            }
-        }
-    }
     
-    func getGroupsQuicktype(completion: @escaping([Groupp])->()) {
-        
-        let method = "/groups.get"
-        
-        let parameters: Parameters = [
-            "user_id": cliendId,
-            "extended": 1,
-            "filter": "groups",
-            "fields": "photo_100",
-            "access_token": Session.shared.token,
-            "v": version
-        ]
-        
-        let url = baseUrl + method
-        
-
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
-            
-            print(response.request)
-            
-            guard let data = response.data else { return }
-           // print(data.prettyJSON)
-            
-            print(data.prettyJSON)
-            
-            let groupsResponse = try? JSONDecoder().decode(Groups.self, from: data)
-            
-            guard let groups = groupsResponse?.response.items else { return }
-            
-            DispatchQueue.main.async {
-                completion(groups)
-            }
-        }
-    }
-    
-    func getPhotosQuicktype(completion: @escaping([Photoo])->()) {
-        
-        let method = "/photos.get"
-        
-        let parameters: Parameters = [
-            "owner_id": cliendId,
-            "album_id": "wall",
-            "photo_ids": "photo_ids",
-            "rev": 1,
-            "extended": 0,
-            "photo_sizes": 0,
-            "access_token": Session.shared.token,
-            "v": version
-        ]
-        
-        let url = baseUrl + method
-        
-
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
-            
-            guard let data = response.data else { return }
-           // print(data.prettyJSON)
-            
-            let photosResponse = try? JSONDecoder().decode(Photos.self, from: data)
-            
-            guard let photos = photosResponse?.response.items else { return }
-            
-            DispatchQueue.main.async {
-                completion(photos)
-            }
-        }
-    }
+//    func getFriendsQuicktype(completion: @escaping([User])->()) {
+//
+//        let method = "/friends.get"
+//
+//        let parameters: Parameters = [
+//            "user_id": cliendId,
+//            "order": "name",
+//            "count": 100,
+//            "fields": "photo_100",
+//            "access_token": Session.shared.token,
+//            "v": version]
+//
+//        let url = baseUrl + method
+//
+//
+//        AF.request(url, method: .get, parameters: parameters).responseData { response in
+//
+//            guard let data = response.data else { return }
+//           // print(data.prettyJSON)
+//
+//            let friendsResponse = try? JSONDecoder().decode(Friends.self, from: data)
+//
+//            guard let friends = friendsResponse?.response.items else { return }
+//
+//            DispatchQueue.main.async {
+//                completion(friends)
+//            }
+//        }
+//    }
+//
+//    func getGroupsQuicktype(completion: @escaping([Groupp])->()) {
+//
+//        let method = "/groups.get"
+//
+//        let parameters: Parameters = [
+//            "user_id": cliendId,
+//            "extended": 1,
+//            "filter": "groups",
+//            "fields": "photo_100",
+//            "access_token": Session.shared.token,
+//            "v": version
+//        ]
+//
+//        let url = baseUrl + method
+//
+//
+//        AF.request(url, method: .get, parameters: parameters).responseData { response in
+//
+//            print(response.request)
+//
+//            guard let data = response.data else { return }
+//           // print(data.prettyJSON)
+//
+//            print(data.prettyJSON)
+//
+//            let groupsResponse = try? JSONDecoder().decode(Groups.self, from: data)
+//
+//            guard let groups = groupsResponse?.response.items else { return }
+//
+//            DispatchQueue.main.async {
+//                completion(groups)
+//            }
+//        }
+//    }
+//
+//    func getPhotosQuicktype(completion: @escaping([Photoo])->()) {
+//
+//        let method = "/photos.get"
+//
+//        let parameters: Parameters = [
+//            "owner_id": cliendId,
+//            "album_id": "wall",
+//            "photo_ids": "photo_ids",
+//            "rev": 1,
+//            "extended": 0,
+//            "photo_sizes": 0,
+//            "access_token": Session.shared.token,
+//            "v": version
+//        ]
+//
+//        let url = baseUrl + method
+//
+//
+//        AF.request(url, method: .get, parameters: parameters).responseData { response in
+//
+//            guard let data = response.data else { return }
+//           // print(data.prettyJSON)
+//
+//            let photosResponse = try? JSONDecoder().decode(Photos.self, from: data)
+//
+//            guard let photos = photosResponse?.response.items else { return }
+//
+//            DispatchQueue.main.async {
+//                completion(photos)
+//            }
+//        }
+//    }
     
 //    func getFriendsManual(completion: ([User])->()) {
 //

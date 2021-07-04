@@ -20,12 +20,12 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let token = KeychainWrapper.standard.string(forKey: "vkToken") {
-            Session.shared.token = token
-            Session.shared.userId = KeychainWrapper.standard.string(forKey: "userId") ?? ""
-            showMainTabBar()
-            return
-        }
+//        if let token = KeychainWrapper.standard.string(forKey: "vkToken") {
+//            Session.shared.token = token
+//            Session.shared.userId = KeychainWrapper.standard.string(forKey: "userId") ?? ""
+//            showMainTabBar()
+//            return
+//        }
         
         authVK()
     }
